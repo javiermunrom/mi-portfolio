@@ -7,10 +7,20 @@ import "@styles/global.css";
 interface Props {
   title?: string;
   description?: string;
+  bodyClass?: string;
+  mainClass?: string;
+  showNavigation?: boolean;
+  showFooter?: boolean;
 }
 
-const { title = siteConfig.title, description = siteConfig.description } =
-  Astro.props;
+const {
+  title = siteConfig.title,
+  description = siteConfig.description,
+  bodyClass = "bg-white text-slate-900",
+  mainClass = "flex-1",
+  showNavigation = true,
+  showFooter = true,
+} = Astro.props;
 
 const pageTitle =
   title === siteConfig.title ? title : `${title} | ${siteConfig.title}`;
@@ -27,13 +37,13 @@ const pageTitle =
     <meta name="description" content={description} />
     <title>{pageTitle}</title>
   </head>
-  <body class="bg-white text-slate-900">
+  <body class={bodyClass}>
     <div class="flex min-h-screen flex-col">
-      <Navbar />
-      <main class="flex-1">
+      {showNavigation && <Navbar />}
+      <main class={mainClass}>
         <slot />
       </main>
-      <Footer />
+      {showFooter && <Footer />}
     </div>
   </body>
 </html>

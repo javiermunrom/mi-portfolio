@@ -1,6 +1,8 @@
 ---
-import FeaturedProjectsSection from "@components/sections/FeaturedProjectsSection.astro";
-import HeroSection from "@components/sections/HeroSection.astro";
+import HomeAboutSection from "@components/sections/HomeAboutSection.astro";
+import HomeContactSection from "@components/sections/HomeContactSection.astro";
+import HomeHeroSection from "@components/sections/HomeHeroSection.astro";
+import HomeProjectsSection from "@components/sections/HomeProjectsSection.astro";
 import MainLayout from "@layouts/MainLayout.astro";
 import { getFeaturedProjects } from "@utils/projects";
 
@@ -9,8 +11,34 @@ const featuredProjects = await getFeaturedProjects();
 
 <MainLayout
   title="Inicio"
-  description="Base profesional y escalable para un portfolio construido con Astro."
+  description="Homepage editorial, minimalista y premium para el portfolio de Javier Muñoz."
+  bodyClass="bg-[#f5f3ef] text-[#020E12]"
+  mainClass="relative flex-1"
+  showNavigation={false}
+  showFooter={false}
 >
-  <HeroSection />
-  <FeaturedProjectsSection projects={featuredProjects} />
+  <HomeHeroSection />
+  <HomeProjectsSection projects={featuredProjects} />
+  <HomeAboutSection />
+  <HomeContactSection />
 </MainLayout>
+
+<script is:inline>
+  const revealElements = document.querySelectorAll(".reveal");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+        }
+      });
+    },
+    {
+      threshold: 0.18,
+      rootMargin: "0px 0px -8% 0px",
+    },
+  );
+
+  revealElements.forEach((element) => observer.observe(element));
+</script>

@@ -1,0 +1,74 @@
+---
+import Container from "@components/ui/Container.astro";
+
+const navItems = [
+  { href: "#inicio", label: "Inicio" },
+  { href: "#proyectos", label: "Proyectos" },
+  { href: "#sobre-mi", label: "Sobre mí" },
+  { href: "#contacto", label: "Contacto" },
+];
+---
+
+<header class="hero-delayed-enter absolute inset-x-0 top-0 z-20">
+  <Container className="max-w-[88rem] px-5 pt-6 sm:px-8 sm:pt-8 lg:px-10">
+    <div
+      class="intro-fade-up flex items-center justify-between gap-6 text-[0.95rem] text-white/80 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:items-center"
+      style="--delay: 0.06s;"
+    >
+      <a class="lg:justify-self-start" href="#inicio" aria-label="Javier Muñoz Romero">
+        <img
+          src="/images/logo.svg"
+          alt="Logo de Javier Muñoz Romero"
+          class="h-14 w-auto invert brightness-0 sm:h-16"
+        />
+      </a>
+
+      <nav class="hidden items-center gap-7 lg:flex lg:justify-self-center">
+        {
+          navItems.map((item) => (
+            <a
+              class="transition duration-300 hover:text-white/58"
+              href={item.href}
+            >
+              {item.label}
+            </a>
+          ))
+        }
+      </nav>
+
+      <details class="group lg:hidden">
+        <summary
+          class="flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-full border border-white/12 bg-white/4 text-white/84 marker:content-none"
+        >
+          <span class="space-y-1.5">
+            <span class="block h-px w-4 bg-current"></span>
+            <span class="block h-px w-4 bg-current"></span>
+          </span>
+        </summary>
+        <div
+          class="absolute right-4 mt-3 min-w-48 rounded-[1.5rem] border border-white/12 bg-[#020E12]/68 p-4 shadow-[0_20px_60px_rgba(2,14,18,0.14)] backdrop-blur-sm sm:right-8"
+        >
+          <div class="flex flex-col gap-3 text-sm text-white/92">
+            {
+              navItems.map((item) => (
+                <a
+                  class="transition duration-300 hover:text-white/65"
+                  href={item.href}
+                >
+                  {item.label}
+                </a>
+              ))
+            }
+          </div>
+        </div>
+      </details>
+
+      <a
+        class="hidden rounded-full border border-white/14 px-4 py-2 text-sm text-white/80 transition duration-300 hover:bg-white/7 lg:inline-flex lg:justify-self-end"
+        href="#contacto"
+      >
+        Contacto
+      </a>
+    </div>
+  </Container>
+</header>

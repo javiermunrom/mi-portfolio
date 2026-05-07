@@ -1,0 +1,89 @@
+---
+import Container from "@components/ui/Container.astro";
+---
+
+<section id="contacto" class="bg-[#020E12] py-24 text-white sm:py-28 lg:py-32">
+  <Container className="max-w-[88rem] px-5 sm:px-8 lg:px-10">
+    <div class="space-y-10">
+      <div class="grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(18rem,0.95fr)] lg:items-end">
+        <div class="reveal max-w-4xl space-y-4">
+          <p class="text-[0.7rem] font-medium tracking-[0.3em] text-white/44 uppercase">
+            Contacto
+          </p>
+          <h2 class="text-[2.2rem] leading-[1.02] font-normal tracking-[-0.045em] text-white sm:text-[3rem] lg:text-[3.6rem]">
+            Disponible para conversaciones serias alrededor de software, automatización e inteligencia artificial aplicada.
+          </h2>
+        </div>
+
+        <div class="reveal lg:justify-self-end" style="--delay: 0.06s;">
+          <p class="max-w-md text-[1rem] leading-7 text-white/62 sm:text-[1.05rem]">
+            Si estás explorando una colaboración, una idea técnica o una oportunidad profesional, este es un buen punto de partida.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid gap-5 lg:grid-cols-[minmax(0,1.12fr)_minmax(18rem,0.88fr)] lg:gap-6">
+        <div class="reveal rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 sm:p-8 lg:p-10" style="--delay: 0.08s;">
+          <div class="grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
+            <div class="space-y-5">
+              <p class="text-[0.7rem] tracking-[0.24em] text-white/40 uppercase">Colaboración</p>
+              <p class="max-w-2xl text-[1.05rem] leading-8 text-white/78 sm:text-[1.14rem]">
+                Interés en proyectos que necesiten criterio técnico, buena estructura y capacidad para conectar desarrollo de software con datos, automatización o IA.
+              </p>
+            </div>
+
+            <a
+              class="inline-flex w-fit items-center gap-3 rounded-full border border-white/18 px-5 py-3 text-[0.82rem] tracking-[0.2em] text-white/92 uppercase transition duration-300 hover:bg-white/10"
+              href="mailto:hello@example.com"
+            >
+              <span>Escribir un correo</span>
+              <span>{">"}</span>
+            </a>
+          </div>
+
+          <div class="mt-8 grid gap-4 border-t border-white/10 pt-8 sm:grid-cols-3">
+            <div>
+              <p class="text-[0.68rem] tracking-[0.22em] text-white/38 uppercase">Enfoque</p>
+              <p class="mt-3 text-sm leading-7 text-white/68 sm:text-[0.98rem]">
+                Desarrollo técnico con orientación práctica y buena base arquitectónica.
+              </p>
+            </div>
+            <div>
+              <p class="text-[0.68rem] tracking-[0.22em] text-white/38 uppercase">Áreas</p>
+              <p class="mt-3 text-sm leading-7 text-white/68 sm:text-[0.98rem]">
+                Software, machine learning, automatización, tooling e IA aplicada.
+              </p>
+            </div>
+            <div>
+              <p class="text-[0.68rem] tracking-[0.22em] text-white/38 uppercase">Formato</p>
+              <p class="mt-3 text-sm leading-7 text-white/68 sm:text-[0.98rem]">
+                Colaboraciones, propuestas técnicas y oportunidades profesionales.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 sm:p-8" style="--delay: 0.12s;">
+          <div class="space-y-6">
+            <p class="text-[0.7rem] tracking-[0.24em] text-white/40 uppercase">Canales</p>
+
+            <div class="space-y-5 border-t border-white/10 pt-5">
+              <div>
+                <p class="text-[0.68rem] tracking-[0.22em] text-white/38 uppercase">Email</p>
+                <p class="mt-2 text-sm leading-7 text-white/72 sm:text-[0.98rem]">hello@example.com</p>
+              </div>
+              <div>
+                <p class="text-[0.68rem] tracking-[0.22em] text-white/38 uppercase">Ubicación</p>
+                <p class="mt-2 text-sm leading-7 text-white/72 sm:text-[0.98rem]">Sevilla · Remoto</p>
+              </div>
+              <div>
+                <p class="text-[0.68rem] tracking-[0.22em] text-white/38 uppercase">Respuesta</p>
+                <p class="mt-2 text-sm leading-7 text-white/72 sm:text-[0.98rem]">Disponible para conversaciones bien planteadas y propuestas con contexto.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>

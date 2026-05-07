@@ -1,16 +1,19 @@
 ---
-title: Portfolio Foundation
-description: Base inicial del portfolio con arquitectura limpia, rutas dinámicas y colecciones de contenido.
+title: Desarrollo de modelos predictivos para el diagnostico de patologias de suelo pelvico a partir de ecografias
+description: Sistema basado en Machine Learning para el diagnostico automatico de patologias ginecologicas a partir de ecografias medicas y segmentacion anatomica mediante CNN.
 technologies:
-  - Astro
-  - TypeScript
-  - Tailwind CSS
+  - Python
+  - XGBoost
+  - Optuna
+  - CNN
+  - Machine Learning
+  - OpenCV
 featured: true
 githubUrl: https://github.com/tu-usuario/mi-portfolio
 demoUrl: https://example.com
-date: 2026-05-07
+date: 2025-06-01
 ---
 
-Este proyecto de ejemplo sirve para validar la estructura inicial del portfolio.
+Trabajo de fin de grado orientado al diagnostico predictivo de patologias de suelo pelvico a partir de ecografias ginecologicas.
 
-Incluye una arquitectura preparada para crecer con contenido dinámico, componentes reutilizables y una organización clara del código.
+El proyecto combina segmentacion anatomica mediante CNN, ingenieria de caracteristicas, optimizacion con Optuna, clasificacion con XGBoost y analisis clinico explicable.
