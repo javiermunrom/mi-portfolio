@@ -1,0 +1,24 @@
+---
+import Container from "@components/ui/Container.astro";
+import { navigationItems } from "@data/site";
+---
+
+<header class="border-b border-slate-200">
+  <Container>
+    <nav class="flex items-center justify-between py-4">
+      <a class="text-base font-semibold text-slate-900" href="/">Mi Portfolio</a
+      >
+      <ul class="flex items-center gap-6 text-sm text-slate-600">
+        {
+          navigationItems.map((item) => (
+            <li>
+              <a class="transition hover:text-slate-900" href={item.href}>
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </Container>
+</header>

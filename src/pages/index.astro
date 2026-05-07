@@ -1,0 +1,16 @@
+---
+import FeaturedProjectsSection from "@components/sections/FeaturedProjectsSection.astro";
+import HeroSection from "@components/sections/HeroSection.astro";
+import MainLayout from "@layouts/MainLayout.astro";
+import { getFeaturedProjects } from "@utils/projects";
+
+const featuredProjects = await getFeaturedProjects();
+---
+
+<MainLayout
+  title="Inicio"
+  description="Base profesional y escalable para un portfolio construido con Astro."
+>
+  <HeroSection />
+  <FeaturedProjectsSection projects={featuredProjects} />
+</MainLayout>

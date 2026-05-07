@@ -1,0 +1,16 @@
+---
+import Container from "@components/ui/Container.astro";
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="border-t border-slate-200">
+  <Container>
+    <div
+      class="flex flex-col gap-2 py-6 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between"
+    >
+      <p>&copy; {currentYear} Mi Portfolio.</p>
+      <p>Base limpia, mantenible y preparada para crecer.</p>
+    </div>
+  </Container>
+</footer>

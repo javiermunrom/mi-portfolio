@@ -1,0 +1,46 @@
+---
+import ProjectCard from "@components/projects/ProjectCard.astro";
+import Container from "@components/ui/Container.astro";
+import type { ProjectEntry } from "@utils/projects";
+
+interface Props {
+  projects: ProjectEntry[];
+}
+
+const { projects } = Astro.props;
+---
+
+<section class="py-16 sm:py-20">
+  <Container>
+    <div class="mb-8 flex items-end justify-between gap-4">
+      <div class="space-y-2">
+        <p
+          class="text-sm font-medium tracking-[0.2em] text-slate-500 uppercase"
+        >
+          Proyectos
+        </p>
+        <h2 class="text-2xl font-semibold text-slate-900">Seleccionados</h2>
+      </div>
+      <a
+        class="text-sm font-medium text-slate-700 hover:text-slate-900"
+        href="/projects"
+      >
+        Ver todos
+      </a>
+    </div>
+
+    {
+      projects.length > 0 ? (
+        <div class="grid gap-6">
+          {projects.map((project) => (
+            <ProjectCard project={project} />
+          ))}
+        </div>
+      ) : (
+        <p class="text-sm text-slate-500">
+          Todavía no hay proyectos destacados.
+        </p>
+      )
+    }
+  </Container>
+</section>

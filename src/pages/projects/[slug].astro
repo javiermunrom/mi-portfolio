@@ -1,0 +1,65 @@
+---
+import { render } from "astro:content";
+import Container from "@components/ui/Container.astro";
+import MainLayout from "@layouts/MainLayout.astro";
+import { getProjects, type ProjectEntry } from "@utils/projects";
+
+export async function getStaticPaths() {
+  const projects = await getProjects();
+
+  return projects.map((project) => ({
+    params: { slug: project.id },
+    props: { project },
+  }));
+}
+
+interface Props {
+  project: ProjectEntry;
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+---
+
+<MainLayout title={project.data.title} description={project.data.description}>
+  <section class="py-16 sm:py-20">
+    <Container>
+      <div class="max-w-3xl space-y-8">
+        <div class="space-y-4">
+          <p class="text-sm text-slate-500">
+            {project.data.date.toLocaleDateString("es-ES")}
+          </p>
+          <h1
+            class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl"
+          >
+            {project.data.title}
+          </h1>
+          <p class="text-base leading-7 text-slate-600">
+            {project.data.description}
+          </p>
+        </div>
+
+        <ul class="flex flex-wrap gap-2 text-sm text-slate-500">
+          {
+            project.data.technologies.map((technology) => (
+              <li class="rounded-md bg-slate-100 px-2 py-1">{technology}</li>
+            ))
+          }
+        </ul>
+
+        <div class="flex flex-wrap gap-4 text-sm font-medium text-slate-700">
+          <a href={project.data.githubUrl} target="_blank" rel="noreferrer"
+            >Repositorio</a
+          >
+          <a href={project.data.demoUrl} target="_blank" rel="noreferrer"
+            >Demo</a
+          >
+        </div>
+
+        <article class="space-y-4 leading-7 text-slate-700">
+          <Content />
+        </article>
+      </div>
+    </Container>
+  </section>
+</MainLayout>
