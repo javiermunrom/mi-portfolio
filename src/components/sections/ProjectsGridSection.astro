@@ -1,0 +1,31 @@
+---
+import ProjectCard from "@components/projects/ProjectCard.astro";
+import Container from "@components/ui/Container.astro";
+import SectionHeading from "@components/ui/SectionHeading.astro";
+import { homeContent } from "@data/site";
+import type { ProjectEntry } from "@utils/projects";
+
+interface Props {
+  projects: ProjectEntry[];
+}
+
+const { projects } = Astro.props;
+---
+
+<section id="proyectos" class="section-shell">
+  <Container className="space-y-10">
+    <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+      <SectionHeading
+        eyebrow={homeContent.projectsEyebrow}
+        title={homeContent.projectsTitle}
+        description={homeContent.projectsDescription}
+      />
+
+      <a class="button-secondary w-fit" href="/projects">VER_TODOS</a>
+    </div>
+
+    <div class="grid gap-6 lg:grid-cols-3">
+      {projects.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </Container>
+</section>

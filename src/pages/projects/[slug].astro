@@ -1,6 +1,8 @@
 ---
 import { render } from "astro:content";
+import BadgeList from "@components/ui/BadgeList.astro";
 import Container from "@components/ui/Container.astro";
+import PlaceholderVisual from "@components/ui/PlaceholderVisual.astro";
 import MainLayout from "@layouts/MainLayout.astro";
 import { getProjects, type ProjectEntry } from "@utils/projects";
 
@@ -21,45 +23,41 @@ const { project } = Astro.props;
 const { Content } = await render(project);
 ---
 
-<MainLayout title={project.data.title} description={project.data.description}>
-  <section class="py-16 sm:py-20">
-    <Container>
-      <div class="max-w-3xl space-y-8">
-        <div class="space-y-4">
-          <p class="text-sm text-slate-500">
-            {project.data.date.toLocaleDateString("es-ES")}
-          </p>
-          <h1
-            class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl"
-          >
-            {project.data.title}
-          </h1>
-          <p class="text-base leading-7 text-slate-600">
-            {project.data.description}
-          </p>
+<MainLayout
+  title={project.data.title}
+  description={project.data.description}
+  mainClass="layout-main flex-1"
+>
+  <section class="section-shell">
+    <Container className="space-y-8">
+      <div class="grid gap-10 lg:grid-cols-[minmax(22rem,0.92fr)_minmax(0,1.08fr)] lg:items-start">
+        <PlaceholderVisual
+          label={project.data.mediaLabel}
+          className="min-h-[24rem] rounded-[0.2rem]"
+        />
+
+        <div class="space-y-8 border-t border-[var(--color-border)] pt-8 lg:pt-12">
+          <div class="space-y-4">
+            <p class="eyebrow">DETALLE_PROYECTO</p>
+            <p class="text-sm text-[var(--color-text-muted)]">
+              {project.data.date.toLocaleDateString("es-ES")}
+            </p>
+            <h1 class="section-title text-3xl sm:text-4xl">{project.data.title}</h1>
+            <p class="lead-copy">{project.data.description}</p>
+          </div>
+
+          <BadgeList items={project.data.technologies} />
+
+          <div class="flex flex-wrap gap-5 text-sm font-medium tracking-[0.16em] text-[var(--color-text)] uppercase">
+            <a class="project-link" href={project.data.demoUrl}>VER_PROYECTO</a>
+            <a class="project-link" href={project.data.githubUrl}>GITHUB</a>
+          </div>
         </div>
-
-        <ul class="flex flex-wrap gap-2 text-sm text-slate-500">
-          {
-            project.data.technologies.map((technology) => (
-              <li class="rounded-md bg-slate-100 px-2 py-1">{technology}</li>
-            ))
-          }
-        </ul>
-
-        <div class="flex flex-wrap gap-4 text-sm font-medium text-slate-700">
-          <a href={project.data.githubUrl} target="_blank" rel="noreferrer"
-            >Repositorio</a
-          >
-          <a href={project.data.demoUrl} target="_blank" rel="noreferrer"
-            >Demo</a
-          >
-        </div>
-
-        <article class="space-y-4 leading-7 text-slate-700">
-          <Content />
-        </article>
       </div>
+
+      <article class="rich-copy border-t border-[var(--color-border)] pt-8 lg:pt-10">
+        <Content />
+      </article>
     </Container>
   </section>
 </MainLayout>

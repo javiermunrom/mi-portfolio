@@ -1,6 +1,7 @@
 ---
 import ProjectCard from "@components/projects/ProjectCard.astro";
 import Container from "@components/ui/Container.astro";
+import SectionHeading from "@components/ui/SectionHeading.astro";
 import MainLayout from "@layouts/MainLayout.astro";
 import { getProjects } from "@utils/projects";
 
@@ -9,28 +10,18 @@ const projects = await getProjects();
 
 <MainLayout
   title="Proyectos"
-  description="Listado de proyectos del portfolio con routing dinámico y contenido escalable."
+  description="Listado placeholder de proyectos preparado para crecer."
+  mainClass="layout-main flex-1"
 >
-  <section class="py-16 sm:py-20">
-    <Container>
-      <div class="max-w-3xl space-y-4">
-        <p
-          class="text-sm font-medium tracking-[0.2em] text-slate-500 uppercase"
-        >
-          Portfolio
-        </p>
-        <h1
-          class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl"
-        >
-          Proyectos
-        </h1>
-        <p class="text-base leading-7 text-slate-600">
-          Listado centralizado para navegar hacia la ficha individual de cada
-          proyecto.
-        </p>
-      </div>
+  <section class="section-shell">
+    <Container className="space-y-12">
+      <SectionHeading
+        eyebrow="COLECCION_PROYECTOS"
+        title="PROYECTOS"
+        description="LISTADO_MODULAR_CON_TARJETAS_REUTILIZABLES"
+      />
 
-      <div class="mt-10 grid gap-6">
+      <div class="grid gap-x-8 gap-y-12 lg:grid-cols-2">
         {projects.map((project) => <ProjectCard project={project} />)}
       </div>
     </Container>

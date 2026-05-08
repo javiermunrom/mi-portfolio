@@ -1,0 +1,19 @@
+---
+title: PROYECTO_PRINCIPAL
+description: DESCRIPCION_PROYECTO
+technologies:
+  - TECNOLOGIA_01
+  - TECNOLOGIA_02
+  - TECNOLOGIA_03
+featured: true
+githubUrl: "#"
+demoUrl: "#"
+mediaLabel: VIDEO_PLACEHOLDER
+date: 2026-01-10
+---
+
+## CONTEXTO
+
+- PROBLEMA_A_RESOLVER
+- SOLUCION_PROPUESTA
+- RESULTADO_ESPERADO

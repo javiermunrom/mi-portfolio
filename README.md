@@ -18,12 +18,31 @@ Base profesional para un portfolio personal construido con Astro, TypeScript y T
 - `npm run preview`: previsualiza la build localmente
 - `npm run lint`: ejecuta ESLint sobre el proyecto
 - `npm run format`: formatea el código con Prettier
+- `npm run openspec`: ejecuta la CLI local de OpenSpec
+- `npm run openspec:update`: regenera comandos e instrucciones de OpenSpec
+- `npm run openspec:list`: lista cambios activos de OpenSpec
+- `npm run openspec:validate`: valida specs y cambios de OpenSpec
 
 ## Instalación
 
 ```bash
 npm install
 npm run dev
+```
+
+## OpenSpec
+
+El proyecto está preparado para usar OpenSpec con OpenCode.
+
+- Comando principal en OpenCode: `/opsx:propose "tu cambio"`
+- Otros comandos disponibles: `/opsx:explore`, `/opsx:apply`, `/opsx:archive`
+- Estructura base: `openspec/`
+- Integración de OpenCode: `.opencode/`
+
+Si actualizas la versión de OpenSpec, regenera los archivos del agente con:
+
+```bash
+npm run openspec:update
 ```
 
 ## Estructura
