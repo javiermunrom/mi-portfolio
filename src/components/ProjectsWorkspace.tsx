@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import Logo from "./Logo";
 
 type Locale = "en" | "es";
 
@@ -341,7 +342,7 @@ function ProjectImage({
   priority?: boolean;
   assetBase: string;
 }) {
-  const src = `${assetBase}${image.src.replace(/^\//, "")}`;
+  const src = `${assetBase}${image.src}`;
 
   return (
     <figure className="mt-6">
@@ -1071,10 +1072,13 @@ export default function ProjectsWorkspace({ defaultLocale, projects, assetBase }
     >
       <div className="mx-auto h-auto min-h-[44rem] w-full max-w-[95vw] overflow-hidden rounded-[1.35rem] border border-white/10 bg-[#0b111b]/94 shadow-[0_30px_90px_rgba(0,0,0,0.24)] backdrop-blur-xl lg:h-[62rem]">
         <div className="flex h-10 items-center border-b border-white/10 bg-[#111111] px-3 text-xs text-slate-400">
-          <div className="mr-5 flex items-center gap-2" aria-hidden="true">
+          <div className="mr-3 flex items-center gap-2" aria-hidden="true">
             <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
             <span className="h-3 w-3 rounded-full bg-[#ffbd2e]" />
             <span className="h-3 w-3 rounded-full bg-[#28c840]" />
+          </div>
+          <div className="mr-3 text-slate-500">
+            <Logo size={16} />
           </div>
           <div className="hidden items-center gap-4 lg:flex">
             {menuItems.map((item) => (

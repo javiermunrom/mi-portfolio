@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import Logo from "./Logo";
 
 type Locale = "en" | "es";
 
@@ -121,7 +122,7 @@ export default function AboutMacDesktop({ defaultLocale, content, contacts, asse
   const current = content[locale] ?? content[defaultLocale];
   const terminal = current.terminal;
   const cvLabel = locale === "es" ? "Descargar CV" : "Download CV";
-  const assetPath = (path: string) => `${assetBase}${path.replace(/^\//, "")}`;
+  const assetPath = (path: string) => `${assetBase}${path}`;
 
   useEffect(() => {
     const storedLocale = window.localStorage.getItem(
@@ -164,6 +165,9 @@ export default function AboutMacDesktop({ defaultLocale, content, contacts, asse
         >
           <div className="flex h-12 items-center border-b border-black/10 bg-white/64 px-4">
             <TrafficLights />
+            <div className="ml-3 text-[#5f6368]">
+              <Logo size={16} />
+            </div>
             <div className="flex-1 text-center text-sm font-semibold text-[#5f6368]">
               javier.jpg
             </div>
@@ -261,6 +265,9 @@ export default function AboutMacDesktop({ defaultLocale, content, contacts, asse
         >
           <div className="flex h-12 items-center border-b border-white/10 bg-[#161b22] px-4">
             <TrafficLights />
+            <div className="ml-3 text-white/56">
+              <Logo size={16} />
+            </div>
             <div
               className="flex-1 text-center text-xs text-white/56 sm:text-sm"
               style={terminalFont}

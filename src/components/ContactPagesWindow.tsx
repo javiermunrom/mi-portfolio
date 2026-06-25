@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Check, FileText, Image, Loader2, Mail, MessageCircle, MousePointer2, Paperclip, PenLine, Send, Settings2, Table2, Type, UserRound } from "lucide-react";
 import { useEffect, useState } from "react";
 import type { FormEvent, ReactNode } from "react";
+import Logo from "./Logo";
 
 type Locale = "en" | "es";
 
@@ -197,6 +198,9 @@ export default function ContactPagesWindow({ defaultLocale }: Props) {
             <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
             <span className="h-3 w-3 rounded-full bg-[#ffbd2e]" />
             <span className="h-3 w-3 rounded-full bg-[#28c840]" />
+          </div>
+          <div className="ml-3 text-slate-400">
+            <Logo size={18} />
           </div>
           <div className="ml-4 flex items-center gap-2 rounded-lg border border-white/10 bg-white/[0.08] px-3 py-1.5 text-sm font-semibold text-slate-200">
             <FileText className="h-4 w-4 text-[#f59e0b]" />

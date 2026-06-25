@@ -1,5 +1,6 @@
 ---
 import site from "../../data/site.json";
+import Logo from "./Logo.astro";
 
 type Locale = "en" | "es";
 
@@ -32,6 +33,12 @@ const hrefById: Record<string, string> = {
   data-default-locale={locale}
   data-nav-content={JSON.stringify(navContent)}
 >
+  <div class="nav-brand">
+    <a href="#home" class="nav-logo" aria-label="Home">
+      <Logo size={22} />
+    </a>
+    <span class="nav-brand-name">Javier Muñoz</span>
+  </div>
   <div class="nav-links">
     {
       navItems.map((item) => (
@@ -114,7 +121,7 @@ const hrefById: Record<string, string> = {
     width: 100%;
     min-height: 3.85rem;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     border-bottom: 1px solid rgba(48, 54, 61, 0.72);
     background: rgba(13, 17, 23, 0.82);
     padding: 0 clamp(1rem, 5vw, 4.5rem);
@@ -126,6 +133,32 @@ const hrefById: Record<string, string> = {
     transition:
       opacity 220ms ease,
       transform 220ms ease;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    color: #ff4d5a;
+    text-decoration: none;
+    transition: opacity 180ms ease;
+  }
+
+  .nav-logo:hover {
+    opacity: 0.8;
+  }
+
+  .nav-brand-name {
+    font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+    font-size: clamp(0.85rem, 1.2vw, 1rem);
+    font-weight: 700;
+    color: rgba(201, 209, 217, 0.82);
+    letter-spacing: 0.02em;
   }
 
   .site-navbar,
@@ -162,13 +195,16 @@ const hrefById: Record<string, string> = {
     }
 
     .nav-links {
-      width: 100%;
-      justify-content: center;
+      justify-content: flex-end;
       gap: 1rem;
     }
 
     .nav-link {
       font-size: 0.82rem;
+    }
+
+    .nav-brand-name {
+      display: none;
     }
   }
 </style>

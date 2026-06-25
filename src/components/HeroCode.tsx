@@ -1,5 +1,6 @@
 import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import Logo from "./Logo";
 
 type Locale = "en" | "es";
 
@@ -250,6 +251,9 @@ export default function HeroCode({ defaultLocale, locales, content }: Props) {
                 <span className="h-3 w-3 rounded-full bg-[#fb7185]" />
                 <span className="h-3 w-3 rounded-full bg-[#fbbf24]" />
                 <span className="h-3 w-3 rounded-full bg-[#86efac]" />
+              </div>
+              <div className="ml-3 text-slate-500">
+                <Logo size={16} />
               </div>
               <div className="ml-auto rounded-lg border border-white/7 bg-white/[0.035] px-3 py-1.5 text-xs font-medium text-slate-400" style={terminalFont}>
                 javier.py

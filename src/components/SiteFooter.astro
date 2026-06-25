@@ -1,6 +1,7 @@
 ---
 import personal from "../../data/personal.json";
 import site from "../../data/site.json";
+import Logo from "./Logo.astro";
 
 type Locale = "en" | "es";
 
@@ -25,6 +26,10 @@ const content = {
   data-default-locale={defaultLocale}
   data-footer-content={JSON.stringify(content)}
 >
+  <div class="mb-4 flex items-center justify-center gap-2 text-slate-400">
+    <Logo size={16} />
+    <span class="font-semibold text-slate-400">Javier Muñoz</span>
+  </div>
   <p data-footer-made>{content[defaultLocale].made}</p>
   <p class="mt-2" data-footer-rights>{content[defaultLocale].rights}</p>
 </footer>
