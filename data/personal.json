@@ -1,0 +1,43 @@
+{
+  "shared": {
+    "name": "Javier Muñoz Romero",
+    "email": "javiermunoz360@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/javier-muñoz-romero-a982391b9",
+    "github": "https://github.com/javiermunrom"
+  },
+  "en": {
+    "location": "Seville, Spain",
+    "titles": {
+      "primary": ["Software Engineer", "AI Engineer"],
+      "alternative": [
+        "Machine Learning Engineer",
+        "Data Scientist",
+        "Python Developer"
+      ]
+    },
+    "summary": [
+      "I'm Javier Muñoz Romero, a Computer Engineer graduated from the University of Seville with a Master's Degree in Data Science from the Universitat Oberta de Catalunya (UOC), specialized in Artificial Intelligence, Machine Learning, Deep Learning, Natural Language Processing (NLP) and Computer Vision.",
+      "Experienced in software development and data-driven solutions, combining software engineering principles with advanced Artificial Intelligence techniques.",
+      "Interested in designing and building intelligent systems, Machine Learning solutions, LLM-based applications and software capable of generating real-world impact through Artificial Intelligence."
+    ]
+  },
+  "es": {
+    "location": "Sevilla, España",
+    "titles": {
+      "primary": [
+        "Ingeniero de Software",
+        "Ingeniero de Inteligencia Artificial"
+      ],
+      "alternative": [
+        "Ingeniero de Machine Learning",
+        "Científico de Datos",
+        "Desarrollador Python"
+      ]
+    },
+    "summary": [
+      "Soy Javier Muñoz Romero, Ingeniero Informático graduado por la Universidad de Sevilla y Máster en Ciencia de Datos por la Universitat Oberta de Catalunya (UOC), especializado en Inteligencia Artificial, Machine Learning, Deep Learning, Procesamiento del Lenguaje Natural (NLP) y Visión por Computador.",
+      "Experiencia en el desarrollo de software y soluciones basadas en datos, combinando conocimientos de ingeniería del software con técnicas avanzadas de Inteligencia Artificial.",
+      "Interesado en el diseño y construcción de sistemas inteligentes, soluciones basadas en Machine Learning, aplicaciones impulsadas por LLMs y software capaz de generar impacto real mediante la Inteligencia Artificial."
+    ]
+  }
+}

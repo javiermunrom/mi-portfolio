@@ -1,0 +1,26 @@
+---
+import site from "../../data/site.json";
+import HeroCode from "./HeroCode";
+
+type Locale = "en" | "es";
+
+const defaultLocale = site.shared.defaultLocale as Locale;
+const locales = site.shared.locales as Locale[];
+
+const heroContent = Object.fromEntries(
+  locales.map((locale) => [
+    locale,
+    {
+      languageName: site[locale].languageName,
+      switchLanguageLabel: site[locale].actions.switchLanguage,
+      ctaLabel: site[locale].hero.ctaLabel,
+      ctaSuffix: site[locale].hero.ctaSuffix,
+      ctaAriaLabel: site[locale].hero.ctaAriaLabel,
+    },
+  ]),
+);
+---
+
+<section id="home" aria-label="Portfolio hero">
+  <HeroCode client:load defaultLocale={defaultLocale} locales={locales} content={heroContent} />
+</section>

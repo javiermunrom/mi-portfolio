@@ -1,0 +1,150 @@
+{
+  "shared": {
+    "defaultLocale": "es",
+    "locales": ["en", "es"]
+  },
+  "en": {
+    "siteName": "Javier Muñoz Romero | Portfolio",
+    "languageName": "English",
+    "hero": {
+      "greetingPrefix": "Hi, I'm",
+      "headlineLines": [
+        "I build intelligent solutions",
+        "with code and data."
+      ],
+      "ctaLabel": "Continue",
+      "ctaSuffix": "↓",
+      "ctaAriaLabel": "Continue to Javier Muñoz Romero's portfolio sections",
+      "accentKeywords": [
+        "Javier",
+        "code",
+        "data"
+      ]
+    },
+    "about": {
+      "title": "About",
+      "techTitle": "Core Stack",
+      "imageAlt": "Formal portrait of Javier Muñoz Romero",
+      "featuredSkillCategories": [
+        "programming-languages",
+        "artificial-intelligence",
+        "frameworks-libraries",
+        "backend"
+      ]
+    },
+    "navigation": [
+      { "id": "about", "label": "About" },
+      { "id": "experience", "label": "Experience" },
+      { "id": "education", "label": "Education" },
+      { "id": "skills", "label": "Skills" },
+      { "id": "certifications", "label": "Certifications" },
+      { "id": "interests", "label": "Interests" },
+      { "id": "projects", "label": "Projects" },
+      { "id": "contact", "label": "Contact" }
+    ],
+    "sections": {
+      "about": "About",
+      "experience": "Experience",
+      "education": "Education",
+      "skills": "Technical Skills",
+      "certifications": "Certifications",
+      "interests": "Interests",
+      "projects": "Projects",
+      "contact": "Contact"
+    },
+    "labels": {
+      "location": "Location",
+      "email": "Email",
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "primaryTitles": "Professional Titles",
+      "alternativeTitles": "Alternative Titles",
+      "period": "Period",
+      "mode": "Mode",
+      "status": "Status",
+      "specialization": "Specialization",
+      "finalGradeProject": "Final Grade Project",
+      "responsibilities": "Responsibilities",
+      "overallScore": "Overall Score",
+      "certifiedLevel": "Certified Level"
+    },
+    "actions": {
+      "sendEmail": "Send Email",
+      "viewLinkedIn": "View LinkedIn",
+      "viewGitHub": "View GitHub",
+      "switchLanguage": "Switch Language"
+    }
+  },
+  "es": {
+    "siteName": "Javier Muñoz Romero | Portfolio",
+    "languageName": "Español",
+    "hero": {
+      "greetingPrefix": "Hola, soy",
+      "headlineLines": [
+        "Construyo soluciones inteligentes",
+        "con código y datos."
+      ],
+      "ctaLabel": "Continuar",
+      "ctaSuffix": "↓",
+      "ctaAriaLabel": "Continuar por el portfolio de Javier Muñoz Romero",
+      "accentKeywords": [
+        "Javier",
+        "código",
+        "datos"
+      ]
+    },
+    "about": {
+      "title": "Sobre mí",
+      "techTitle": "Stack Principal",
+      "imageAlt": "Retrato formal de Javier Muñoz Romero",
+      "featuredSkillCategories": [
+        "programming-languages",
+        "artificial-intelligence",
+        "frameworks-libraries",
+        "backend"
+      ]
+    },
+    "navigation": [
+      { "id": "about", "label": "Sobre mí" },
+      { "id": "experience", "label": "Experiencia" },
+      { "id": "education", "label": "Educación" },
+      { "id": "skills", "label": "Habilidades" },
+      { "id": "certifications", "label": "Certificaciones" },
+      { "id": "interests", "label": "Intereses" },
+      { "id": "projects", "label": "Proyectos" },
+      { "id": "contact", "label": "Contacto" }
+    ],
+    "sections": {
+      "about": "Sobre mí",
+      "experience": "Experiencia",
+      "education": "Educación",
+      "skills": "Habilidades Técnicas",
+      "certifications": "Certificaciones",
+      "interests": "Intereses",
+      "projects": "Proyectos",
+      "contact": "Contacto"
+    },
+    "labels": {
+      "location": "Ubicación",
+      "email": "Email",
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "primaryTitles": "Títulos Profesionales",
+      "alternativeTitles": "Títulos Alternativos",
+      "period": "Periodo",
+      "mode": "Modalidad",
+      "status": "Estado",
+      "specialization": "Especialización",
+      "finalGradeProject": "Trabajo Fin de Grado",
+      "responsibilities": "Responsabilidades",
+      "overallScore": "Puntuación Global",
+      "certifiedLevel": "Nivel Certificado"
+    },
+    "actions": {
+      "sendEmail": "Enviar Email",
+      "viewLinkedIn": "Ver LinkedIn",
+      "viewGitHub": "Ver GitHub",
+      "switchLanguage": "Cambiar Idioma"
+    }
+  }
+}

@@ -1,0 +1,51 @@
+---
+import personal from "../../data/personal.json";
+import site from "../../data/site.json";
+
+type Locale = "en" | "es";
+
+const defaultLocale = site.shared.defaultLocale as Locale;
+const year = new Date().getFullYear();
+
+const content = {
+  en: {
+    made: `Designed and built by ${personal.shared.name}.`,
+    rights: `© ${year} ${personal.shared.name}. All rights reserved.`,
+  },
+  es: {
+    made: `Diseñado y desarrollado por ${personal.shared.name}.`,
+    rights: `© ${year} ${personal.shared.name}. Todos los derechos reservados.`,
+  },
+};
+---
+
+<footer
+  class="relative border-t border-white/10 bg-[#0d1117] px-6 py-8 text-center text-sm text-slate-500"
+  data-footer-root
+  data-default-locale={defaultLocale}
+  data-footer-content={JSON.stringify(content)}
+>
+  <p data-footer-made>{content[defaultLocale].made}</p>
+  <p class="mt-2" data-footer-rights>{content[defaultLocale].rights}</p>
+</footer>
+
+<script>
+  const footerRoot = document.querySelector("[data-footer-root]");
+
+  if (footerRoot instanceof HTMLElement) {
+    const footerContent = JSON.parse(footerRoot.dataset.footerContent ?? "{}");
+    const defaultLocale = footerRoot.dataset.defaultLocale ?? "es";
+    const made = footerRoot.querySelector("[data-footer-made]");
+    const rights = footerRoot.querySelector("[data-footer-rights]");
+
+    const setFooterLocale = (locale) => {
+      const content = footerContent[locale] ?? footerContent[defaultLocale];
+      if (!content) return;
+      if (made) made.textContent = content.made;
+      if (rights) rights.textContent = content.rights;
+    };
+
+    setFooterLocale(localStorage.getItem("portfolio-locale") ?? defaultLocale);
+    window.addEventListener("portfolio:locale-change", (event) => setFooterLocale(event.detail?.locale));
+  }
+</script>

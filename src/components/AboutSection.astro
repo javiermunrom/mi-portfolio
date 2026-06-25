@@ -1,0 +1,83 @@
+---
+import personal from "../../data/personal.json";
+import site from "../../data/site.json";
+import AboutMacDesktop from "./AboutMacDesktop";
+
+type Locale = "en" | "es";
+
+const defaultLocale = site.shared.defaultLocale as Locale;
+const locales = site.shared.locales as Locale[];
+
+const getAboutContent = (locale: Locale) => ({
+  title: locale === "en" ? "About Me" : site[locale].about.title,
+  subtitle: locale === "en" ? "Get to know me better" : "Conóceme mejor",
+  imageAlt: site[locale].about.imageAlt,
+  summary: personal[locale].summary,
+  terminal: locale === "en"
+    ? {
+        intro: [
+          "I'm Javier Muñoz Romero, a Computer Engineer graduated from the University of Seville",
+          "with a Master's Degree in Data Science from the Universitat Oberta de Catalunya (UOC).",
+        ],
+        specializationTitle: "Specialization",
+        specializations: [
+          "Artificial Intelligence, Machine Learning, Deep Learning, Natural Language Processing (NLP)",
+          "and Computer Vision.",
+        ],
+        experienceTitle: "Experience",
+        experience: [
+          "My experience combines software development with the creation of data-driven and",
+          "AI-based solutions. I have worked on predictive analytics, medical image processing,",
+          "diagnostic support systems, LLM-based applications, and tools for information",
+          "management and visualization.",
+        ],
+        thesisTitle: "Bachelor's Thesis",
+        thesis: [
+          "Graded 10/10, focused on developing Machine Learning models for the automated",
+          "diagnosis of pelvic floor disorders from medical ultrasound images.",
+        ],
+        interestsTitle: "Current Focus",
+        interests: [
+          "Intelligent systems, generative AI applications, applied Machine Learning, and",
+          "solutions that create real-world impact through data and artificial intelligence.",
+        ],
+      }
+    : {
+        intro: [
+          "Soy Javier Muñoz Romero, Ingeniero Informático graduado por la Universidad de Sevilla",
+          "y Máster en Ciencia de Datos por la Universitat Oberta de Catalunya (UOC).",
+        ],
+        specializationTitle: "Especialización",
+        specializations: [
+          "Inteligencia Artificial, Machine Learning, Deep Learning, Procesamiento del Lenguaje Natural (NLP)",
+          "y Visión por Computador.",
+        ],
+        experienceTitle: "Experiencia",
+        experience: [
+          "Mi experiencia combina el desarrollo de software con la creación de soluciones basadas",
+          "en datos e inteligencia artificial. He trabajado en análisis predictivo, procesamiento",
+          "de imágenes médicas, sistemas de apoyo al diagnóstico, aplicaciones basadas en LLMs",
+          "y herramientas para la gestión y visualización de información.",
+        ],
+        thesisTitle: "Trabajo Fin de Grado",
+        thesis: [
+          "Calificado con un 10/10, se centró en el desarrollo de modelos de Machine Learning",
+          "para el diagnóstico automatizado de patologías del suelo pélvico a partir de ecografías médicas.",
+        ],
+        interestsTitle: "Enfoque Actual",
+        interests: [
+          "Desarrollo de sistemas inteligentes, aplicaciones basadas en IA generativa, Machine Learning aplicado",
+          "y soluciones que generen impacto real mediante el uso de datos e inteligencia artificial.",
+        ],
+      },
+});
+
+const aboutContent = Object.fromEntries(locales.map((locale) => [locale, getAboutContent(locale)]));
+const assetBase = import.meta.env.BASE_URL;
+---
+
+<section id="about" class="relative min-h-svh border-t border-white/10 bg-[#0d1117] text-[#f0f6fc] lg:min-h-[155svh]">
+  <div class="flex min-h-svh items-center overflow-hidden lg:sticky lg:top-0">
+    <AboutMacDesktop client:visible defaultLocale={defaultLocale} content={aboutContent} contacts={personal.shared} assetBase={assetBase} />
+  </div>
+</section>

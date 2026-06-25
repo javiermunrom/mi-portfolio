@@ -1,0 +1,32 @@
+{
+  "en": [
+    {
+      "id": "travir-isla-transitos-internship",
+      "company": "Travir Isla Tránsitos S.L.",
+      "position": "Software Engineering Intern",
+      "period": "February 2025 - May 2025",
+      "responsibilities": [
+        "Development and maintenance of an inventory management application.",
+        "Implementation of geospatial visualization features.",
+        "IT infrastructure and network support.",
+        "Hardware and software troubleshooting.",
+        "Internal process optimization through software solutions."
+      ]
+    }
+  ],
+  "es": [
+    {
+      "id": "travir-isla-transitos-internship",
+      "company": "Travir Isla Tránsitos S.L.",
+      "position": "Prácticas en Ingeniería de Software",
+      "period": "Febrero 2025 - Mayo 2025",
+      "responsibilities": [
+        "Desarrollo y mantenimiento de una aplicación de gestión de inventario.",
+        "Implementación de funcionalidades de visualización geoespacial.",
+        "Soporte a infraestructura tecnológica y redes.",
+        "Resolución de incidencias de hardware y software.",
+        "Optimización de procesos internos mediante soluciones software."
+      ]
+    }
+  ]
+}

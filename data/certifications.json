@@ -1,0 +1,22 @@
+{
+  "en": [
+    {
+      "id": "cambridge-b1-preliminary-pet",
+      "name": "Cambridge English B1 Preliminary (PET)",
+      "result": "Pass with Merit",
+      "overallScore": "160",
+      "certifiedLevel": "B1",
+      "description": "Demonstrated competence equivalent to CEFR B2 according to the Cambridge English Scale."
+    }
+  ],
+  "es": [
+    {
+      "id": "cambridge-b1-preliminary-pet",
+      "name": "Cambridge English B1 Preliminary (PET)",
+      "result": "Pass with Merit",
+      "overallScore": "160",
+      "certifiedLevel": "B1",
+      "description": "Competencia demostrada equivalente al nivel B2 del MCER según la Cambridge English Scale."
+    }
+  ]
+}

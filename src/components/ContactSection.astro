@@ -1,0 +1,15 @@
+---
+import site from "../../data/site.json";
+import ContactPagesWindow from "./ContactPagesWindow";
+
+type Locale = "en" | "es";
+
+const defaultLocale = site.shared.defaultLocale as Locale;
+const locales = site.shared.locales as Locale[];
+---
+
+<section id="contact" class="relative min-h-svh border-t border-white/10 bg-[#0d1117] text-[#f8fafc] lg:min-h-[165svh]">
+  <div class="flex min-h-svh items-center overflow-hidden lg:sticky lg:top-0">
+    <ContactPagesWindow client:visible defaultLocale={defaultLocale} locales={locales} />
+  </div>
+</section>

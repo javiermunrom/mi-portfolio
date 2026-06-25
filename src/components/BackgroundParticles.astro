@@ -1,0 +1,83 @@
+---
+const particles = [
+  { left: "4%", top: "18%", size: "1px", opacity: 0.18, peak: 0.3, x: "8px", y: "-6px", duration: "34s", twinkle: "21s", delay: "-3s" },
+  { left: "11%", top: "74%", size: "2px", opacity: 0.12, peak: 0.24, x: "-7px", y: "5px", duration: "39s", twinkle: "26s", delay: "-14s" },
+  { left: "18%", top: "31%", size: "1px", opacity: 0.16, peak: 0.28, x: "6px", y: "8px", duration: "36s", twinkle: "24s", delay: "-9s" },
+  { left: "25%", top: "86%", size: "1px", opacity: 0.14, peak: 0.24, x: "-5px", y: "-7px", duration: "42s", twinkle: "28s", delay: "-18s" },
+  { left: "29%", top: "14%", size: "2px", opacity: 0.1, peak: 0.22, x: "7px", y: "4px", duration: "37s", twinkle: "23s", delay: "-5s" },
+  { left: "36%", top: "57%", size: "1px", opacity: 0.18, peak: 0.3, x: "-8px", y: "6px", duration: "45s", twinkle: "29s", delay: "-21s" },
+  { left: "43%", top: "22%", size: "1px", opacity: 0.13, peak: 0.25, x: "5px", y: "-8px", duration: "40s", twinkle: "25s", delay: "-11s" },
+  { left: "51%", top: "81%", size: "2px", opacity: 0.11, peak: 0.23, x: "-6px", y: "-4px", duration: "43s", twinkle: "31s", delay: "-16s" },
+  { left: "58%", top: "38%", size: "1px", opacity: 0.17, peak: 0.29, x: "8px", y: "7px", duration: "35s", twinkle: "22s", delay: "-8s" },
+  { left: "63%", top: "9%", size: "1px", opacity: 0.13, peak: 0.24, x: "-5px", y: "6px", duration: "41s", twinkle: "27s", delay: "-19s" },
+  { left: "70%", top: "69%", size: "2px", opacity: 0.12, peak: 0.25, x: "6px", y: "-7px", duration: "38s", twinkle: "25s", delay: "-12s" },
+  { left: "77%", top: "28%", size: "1px", opacity: 0.18, peak: 0.31, x: "-7px", y: "5px", duration: "44s", twinkle: "30s", delay: "-23s" },
+  { left: "84%", top: "91%", size: "1px", opacity: 0.13, peak: 0.22, x: "5px", y: "-5px", duration: "46s", twinkle: "32s", delay: "-25s" },
+  { left: "91%", top: "48%", size: "2px", opacity: 0.1, peak: 0.22, x: "-8px", y: "-6px", duration: "39s", twinkle: "24s", delay: "-7s" },
+  { left: "96%", top: "16%", size: "1px", opacity: 0.16, peak: 0.28, x: "-6px", y: "7px", duration: "36s", twinkle: "23s", delay: "-2s" },
+  { left: "7%", top: "43%", size: "1px", opacity: 0.11, peak: 0.22, x: "7px", y: "7px", duration: "47s", twinkle: "34s", delay: "-27s" },
+  { left: "32%", top: "45%", size: "2px", opacity: 0.09, peak: 0.2, x: "-6px", y: "5px", duration: "44s", twinkle: "29s", delay: "-10s" },
+  { left: "67%", top: "54%", size: "1px", opacity: 0.15, peak: 0.27, x: "7px", y: "-6px", duration: "40s", twinkle: "26s", delay: "-15s" },
+  { left: "88%", top: "75%", size: "1px", opacity: 0.13, peak: 0.24, x: "-5px", y: "8px", duration: "42s", twinkle: "28s", delay: "-20s" },
+  { left: "48%", top: "6%", size: "1px", opacity: 0.12, peak: 0.23, x: "6px", y: "6px", duration: "48s", twinkle: "35s", delay: "-30s" },
+];
+---
+
+<div class="background-particles" aria-hidden="true">
+  {particles.map((particle) => (
+    <span
+      style={`--left:${particle.left};--top:${particle.top};--size:${particle.size};--opacity:${particle.opacity};--peak:${particle.peak};--x:${particle.x};--y:${particle.y};--duration:${particle.duration};--twinkle:${particle.twinkle};--delay:${particle.delay};`}
+    />
+  ))}
+</div>
+
+<style>
+  .background-particles {
+    position: fixed;
+    inset: 0;
+    z-index: 5;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .background-particles span {
+    position: absolute;
+    left: var(--left);
+    top: var(--top);
+    width: var(--size);
+    height: var(--size);
+    border-radius: 999px;
+    background: #ffffff;
+    opacity: var(--opacity);
+    animation:
+      particle-drift var(--duration) ease-in-out infinite alternate,
+      particle-breathe var(--twinkle) ease-in-out infinite;
+    animation-delay: var(--delay), var(--delay);
+  }
+
+  @keyframes particle-drift {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+
+    to {
+      transform: translate3d(var(--x), var(--y), 0);
+    }
+  }
+
+  @keyframes particle-breathe {
+    0%, 100% {
+      opacity: var(--opacity);
+    }
+
+    50% {
+      opacity: var(--peak);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .background-particles span {
+      animation: none;
+    }
+  }
+</style>

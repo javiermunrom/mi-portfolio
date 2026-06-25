@@ -1,0 +1,212 @@
+{
+  "en": [
+    {
+      "id": "tfg-medical-ai",
+      "file": "tfg-medical-ai.md",
+      "title": "Bachelor's Thesis · Medical AI",
+      "summary": "Bachelor's Thesis graded 10/10 at the University of Seville: AI-based diagnosis of pelvic floor disorders from transperineal ultrasound images.",
+      "description": "I developed a Machine Learning system capable of diagnosing different pelvic floor pathologies from segmented transperineal ultrasound images. The project transforms CNN-generated segmentations into hundreds of anatomical, geometric and texture features to train interpretable models that can support clinical diagnosis.",
+      "technologies": ["Python", "NumPy", "Pandas", "OpenCV", "Scikit-learn", "XGBoost", "Optuna", "Matplotlib", "LIME"],
+      "images": [
+        {
+          "src": "/images/projects/tfg/mapas_probabilidad_organos_pelvicos.png",
+          "alt": "Probability maps of pelvic organs generated from ultrasound segmentations",
+          "caption": "Probability maps of pelvic organs"
+        },
+        {
+          "src": "/images/projects/tfg/cajas_delimitadoras_organos.png",
+          "alt": "Bounding boxes extracted from segmented pelvic organs",
+          "caption": "Feature engineering from segmented organs"
+        }
+      ],
+      "workflow": ["CNN Segmentations", "Feature Engineering", "Temporal Aggregation", "Model Training", "Hyperparameter Optimization", "Threshold Calibration", "Explainability"],
+      "results": [
+        "Cystocele | KNN | τs 0.5 | τc 0.3829 | Precision 0.8235 | Recall 1.0000 | F1 0.9032 | AUC 0.9657",
+        "Rectocele | XGBoost | τs 0.6 | τc 0.1358 | Precision 1.0000 | Recall 0.6000 | F1 0.7500 | AUC 0.9706",
+        "Cystourethrocele | Decision Tree | τs 0.5 | τc 0.1011 | Precision 0.3333 | Recall 1.0000 | F1 0.5000 | AUC 0.9630",
+        "Cervical elongation | KNN | τs 0.5 | τc 0.2457 | Precision 0.5385 | Recall 1.0000 | F1 0.7000 | AUC 0.9509",
+        "Uterine prolapse | KNN | τs 0.5 | τc 0.2919 | Precision 0.7273 | Recall 1.0000 | F1 0.8421 | AUC 0.9758",
+        "Any type | KNN | τs 0.5 | τc 0.4996 | Precision 1.0000 | Recall 1.0000 | F1 1.0000 | AUC 1.0000"
+      ],
+      "features": [
+        "Feature engineering pipeline from segmented ultrasound images",
+        "Extraction of geometric, anatomical and GLCM texture features",
+        "Temporal aggregation using sliding windows",
+        "Training and optimization of multiple Machine Learning models",
+        "Clinical threshold optimization using Precision-Recall curves"
+      ],
+      "challenges": [
+        "Preventing data leakage with Group Cross Validation",
+        "Designing robust features from medical segmentations",
+        "Calibrating thresholds according to clinical objectives"
+      ],
+      "learnings": [
+        "Designing complete Machine Learning pipelines for medical imaging",
+        "Hyperparameter optimization with Bayesian Optimization using Optuna",
+        "Reproducible research code and clinically oriented validation"
+      ],
+      "links": { "demo": "https://drive.google.com/drive/folders/1CsDQStLGqxpjAFcMG-0We7JmM_DoedeY", "github": "https://github.com/javiermunrom/pop-detection-ml" }
+    },
+    {
+      "id": "space-visualization",
+      "file": "space-visualization.md",
+      "title": "De Sputnik to Starlink",
+      "summary": "Interactive data storytelling about the evolution of space activity from 1957 to 2026.",
+      "description": "An editorial scrollytelling experience based on real space activity data, showing how space evolved from a geopolitical race into a global orbital economy.",
+      "technologies": ["Astro", "TypeScript", "D3.js", "Tailwind CSS", "Python", "Pandas", "NumPy", "Parquet", "TopoJSON", "GitHub Pages", "GitHub Actions"],
+      "workflow": ["Raw Data Sources", "Cleaning & Normalization", "Dataset Integration", "Feature Derivation", "Exploratory Analysis", "Narrative Design", "Interactive Visualization"],
+      "results": ["11,627 records analyzed", "1957-2026 temporal coverage", "3 data sources integrated", "7 decades of space history", "5 narrative chapters"],
+      "features": [
+        "Interactive scrollytelling website with five narrative chapters",
+        "Data pipeline integrating GCAT, UCS Satellite Database and Space Missions data",
+        "Historical launch timeline from 1957 to 2026",
+        "World map of spatial activity by historical period",
+        "Animated ranking of launch providers",
+        "Public vs private actor analysis",
+        "Reliability visualization based on mission success",
+        "Orbital infrastructure chapter focused on communications and Earth observation",
+        "Responsive editorial design for desktop and mobile"
+      ],
+      "challenges": [
+        "Combining heterogeneous datasets into a coherent historical narrative",
+        "Designing scroll interactions that support the story without distracting from the data",
+        "Keeping visualizations readable across desktop and mobile"
+      ],
+      "learnings": [
+        "The space race began as a competition between states, mainly the United States and the USSR/Russia",
+        "After the Cold War, access to space became more fragmented and multipolar",
+        "Since 2010, private actors have become increasingly central",
+        "SpaceX changed the recent scale of annual launches",
+        "Space activity is now infrastructure for communications, Earth observation, navigation and economic services"
+      ],
+      "links": { "demo": "https://javiermunrom.github.io/de-sputnik-a-starlink/", "github": "https://github.com/javiermunrom/de-sputnik-a-starlink" }
+    },
+    {
+      "id": "portfolio",
+      "file": "portfolio.md",
+      "title": "Developer Portfolio",
+      "summary": "The portfolio you are currently exploring: a clean, interactive site built to present my profile and projects as a software workspace.",
+      "description": "This project is the website itself. It focuses on a coherent developer narrative: hero as code editor, about as terminal, and projects as a documentation workspace.",
+      "technologies": ["Astro", "React", "TypeScript", "Tailwind CSS", "Framer Motion"],
+      "features": [
+        "Bilingual Spanish and English content",
+        "Interactive sections inspired by developer tools",
+        "Responsive layout for desktop and mobile",
+        "Subtle motion and a consistent dark visual system"
+      ],
+      "challenges": [
+        "Keeping the interface elegant without adding unnecessary effects",
+        "Making each section feel different while preserving one coherent system"
+      ],
+      "learnings": [
+        "A portfolio works better when it has a clear concept and avoids visual noise"
+      ],
+      "links": { "demo": "", "github": "" }
+    }
+  ],
+  "es": [
+    {
+      "id": "tfg-medical-ai",
+      "file": "tfg-medical-ai.md",
+      "title": "TFG · Medical AI",
+      "summary": "Trabajo Fin de Grado calificado con 10/10 en la Universidad de Sevilla: diagnóstico de patologías del suelo pélvico mediante IA a partir de ecografías transperineales.",
+      "description": "Desarrollé un sistema de Machine Learning capaz de diagnosticar distintas patologías del suelo pélvico a partir de ecografías transperineales segmentadas. El proyecto transforma las segmentaciones generadas por una CNN en cientos de variables anatómicas, geométricas y texturales para entrenar modelos interpretables capaces de asistir al diagnóstico clínico.",
+      "technologies": ["Python", "NumPy", "Pandas", "OpenCV", "Scikit-learn", "XGBoost", "Optuna", "Matplotlib", "LIME"],
+      "images": [
+        {
+          "src": "/images/projects/tfg/mapas_probabilidad_organos_pelvicos.png",
+          "alt": "Mapas de probabilidad de órganos pélvicos generados desde segmentaciones ecográficas",
+          "caption": "Mapas de probabilidad de órganos pélvicos"
+        },
+        {
+          "src": "/images/projects/tfg/cajas_delimitadoras_organos.png",
+          "alt": "Cajas delimitadoras extraídas de órganos pélvicos segmentados",
+          "caption": "Feature engineering desde órganos segmentados"
+        }
+      ],
+      "workflow": ["Segmentaciones CNN", "Feature Engineering", "Agregación Temporal", "Entrenamiento", "Optimización de Hiperparámetros", "Calibración de Umbrales", "Explicabilidad"],
+      "results": [
+        "Cistocele | KNN | τs 0.5 | τc 0.3829 | Precisión 0.8235 | Recall 1.0000 | F1 0.9032 | AUC 0.9657",
+        "Rectocele | XGBoost | τs 0.6 | τc 0.1358 | Precisión 1.0000 | Recall 0.6000 | F1 0.7500 | AUC 0.9706",
+        "Cistouretrocele | Árbol de decisión | τs 0.5 | τc 0.1011 | Precisión 0.3333 | Recall 1.0000 | F1 0.5000 | AUC 0.9630",
+        "Elongación cervical | KNN | τs 0.5 | τc 0.2457 | Precisión 0.5385 | Recall 1.0000 | F1 0.7000 | AUC 0.9509",
+        "Prolapso uterino | KNN | τs 0.5 | τc 0.2919 | Precisión 0.7273 | Recall 1.0000 | F1 0.8421 | AUC 0.9758",
+        "Cualquier tipo | KNN | τs 0.5 | τc 0.4996 | Precisión 1.0000 | Recall 1.0000 | F1 1.0000 | AUC 1.0000"
+      ],
+      "features": [
+        "Pipeline de feature engineering desde ecografías segmentadas",
+        "Extracción de variables geométricas, anatómicas y texturales GLCM",
+        "Agregación temporal mediante ventanas deslizantes",
+        "Entrenamiento y optimización de múltiples modelos de Machine Learning",
+        "Optimización de umbrales clínicos mediante curvas Precision-Recall"
+      ],
+      "challenges": [
+        "Evitar fuga de datos usando Group Cross Validation",
+        "Diseñar variables robustas a partir de segmentaciones médicas",
+        "Calibrar umbrales según objetivos clínicos"
+      ],
+      "learnings": [
+        "Diseño de pipelines completos de Machine Learning para imagen médica",
+        "Optimización de hiperparámetros con Bayesian Optimization usando Optuna",
+        "Código de investigación reproducible y validación orientada al contexto clínico"
+      ],
+      "links": { "demo": "https://drive.google.com/drive/folders/1CsDQStLGqxpjAFcMG-0We7JmM_DoedeY", "github": "https://github.com/javiermunrom/pop-detection-ml" }
+    },
+    {
+      "id": "space-visualization",
+      "file": "space-visualization.md",
+      "title": "De Sputnik a Starlink",
+      "summary": "Data storytelling interactivo sobre la evolución de la actividad espacial desde 1957 hasta 2026.",
+      "description": "Una experiencia editorial de scrollytelling basada en datos reales de actividad espacial, mostrando cómo el espacio pasó de una carrera geopolítica a una economía orbital global.",
+      "technologies": ["Astro", "TypeScript", "D3.js", "Tailwind CSS", "Python", "Pandas", "NumPy", "Parquet", "TopoJSON", "GitHub Pages", "GitHub Actions"],
+      "workflow": ["Fuentes de Datos", "Limpieza y Normalización", "Integración de Datasets", "Derivación de Variables", "Análisis Exploratorio", "Diseño Narrativo", "Visualización Interactiva"],
+      "results": ["11.627 registros analizados", "Cobertura temporal 1957-2026", "3 fuentes de datos integradas", "7 décadas de historia espacial", "5 capítulos narrativos"],
+      "features": [
+        "Web interactiva de scrollytelling con cinco capítulos narrativos",
+        "Pipeline de datos integrando GCAT, UCS Satellite Database y Space Missions",
+        "Timeline histórico de lanzamientos desde 1957 hasta 2026",
+        "Mapa mundial de actividad espacial por periodo histórico",
+        "Ranking animado de proveedores de lanzamiento",
+        "Análisis de actores públicos frente a privados",
+        "Visualización de fiabilidad basada en éxito de misiones",
+        "Capítulo de infraestructura orbital centrado en comunicaciones y observación terrestre",
+        "Diseño editorial responsive para escritorio y móvil"
+      ],
+      "challenges": [
+        "Combinar datasets heterogéneos en una narrativa histórica coherente",
+        "Diseñar interacciones de scroll que acompañen la historia sin distraer de los datos",
+        "Mantener las visualizaciones legibles en escritorio y móvil"
+      ],
+      "learnings": [
+        "La carrera espacial empezó como una competición entre estados, principalmente Estados Unidos y la URSS/Rusia",
+        "Tras la Guerra Fría, el acceso al espacio se volvió más fragmentado y multipolar",
+        "Desde 2010, los actores privados han ganado un papel cada vez más central",
+        "SpaceX cambió la escala reciente de lanzamientos anuales",
+        "La actividad espacial ya no es solo exploración: es infraestructura para comunicaciones, observación terrestre, navegación y servicios económicos"
+      ],
+      "links": { "demo": "https://javiermunrom.github.io/de-sputnik-a-starlink/", "github": "https://github.com/javiermunrom/de-sputnik-a-starlink" }
+    },
+    {
+      "id": "portfolio",
+      "file": "portfolio.md",
+      "title": "Portfolio Developer",
+      "summary": "El portfolio que estás explorando ahora mismo: una web limpia e interactiva para presentar mi perfil y mis proyectos como un workspace de software.",
+      "description": "Este proyecto es la propia web. La idea es construir una narrativa developer coherente: hero como editor de código, about como terminal y proyectos como workspace de documentación.",
+      "technologies": ["Astro", "React", "TypeScript", "Tailwind CSS", "Framer Motion"],
+      "features": [
+        "Contenido bilingüe en español e inglés",
+        "Secciones interactivas inspiradas en herramientas developer",
+        "Diseño responsive para escritorio y móvil",
+        "Movimiento sutil y sistema visual oscuro coherente"
+      ],
+      "challenges": [
+        "Mantener la interfaz elegante sin añadir efectos innecesarios",
+        "Hacer que cada sección sea distinta sin romper la coherencia general"
+      ],
+      "learnings": [
+        "Un portfolio funciona mejor cuando tiene un concepto claro y evita el ruido visual"
+      ],
+      "links": { "demo": "", "github": "" }
+    }
+  ]
+}

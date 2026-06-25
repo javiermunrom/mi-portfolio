@@ -1,17 +1,33 @@
 ---
+import AboutSection from "../components/AboutSection.astro";
+import BackgroundParticles from "../components/BackgroundParticles.astro";
+import ContactSection from "../components/ContactSection.astro";
+import Hero from "../components/Hero.astro";
+import ProjectsSection from "../components/ProjectsSection.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import SiteNavbar from "../components/SiteNavbar.astro";
 import "../styles/global.css";
+
+import site from "../../data/site.json";
+
+const locale = site.shared.defaultLocale;
+const title = site[locale].siteName;
 ---
 
-<html lang="es">
+<html lang={locale}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Base Astro</title>
+    <title>{title}</title>
   </head>
   <body>
-    <main>
-      <p>Base Astro</p>
-    </main>
+    <BackgroundParticles />
+    <SiteNavbar />
+    <Hero />
+    <AboutSection />
+    <ProjectsSection />
+    <ContactSection />
+    <SiteFooter />
   </body>
 </html>

@@ -1,0 +1,174 @@
+---
+import site from "../../data/site.json";
+
+type Locale = "en" | "es";
+
+const locale = site.shared.defaultLocale as Locale;
+const locales = site.shared.locales as Locale[];
+
+const getNavItems = (currentLocale: Locale) =>
+  [
+    { id: "home", label: currentLocale === "es" ? "Inicio" : "Home" },
+    site[currentLocale].navigation.find((item) => item.id === "about"),
+    site[currentLocale].navigation.find((item) => item.id === "projects"),
+    site[currentLocale].navigation.find((item) => item.id === "contact"),
+  ].filter(Boolean) as Array<{ id: string; label: string }>;
+
+const navItems = getNavItems(locale);
+const navContent = Object.fromEntries(locales.map((currentLocale) => [currentLocale, getNavItems(currentLocale)]));
+
+const hrefById: Record<string, string> = {
+  home: "#home",
+  about: "#about",
+  projects: "#projects",
+  contact: "#contact",
+};
+---
+
+<nav
+  class="site-navbar"
+  aria-label="Primary navigation"
+  data-nav-root
+  data-default-locale={locale}
+  data-nav-content={JSON.stringify(navContent)}
+>
+  <div class="nav-links">
+    {
+      navItems.map((item) => (
+        <a class:list={["nav-link", { "is-active": item.id === "home" }]} href={hrefById[item.id] ?? `#${item.id}`} data-nav-link={item.id}>
+          {item.label}
+        </a>
+      ))
+    }
+  </div>
+</nav>
+
+<script>
+  const navRoot = document.querySelector("[data-nav-root]");
+
+  if (navRoot instanceof HTMLElement) {
+    const navContent = JSON.parse(navRoot.dataset.navContent ?? "{}");
+    const defaultLocale = navRoot.dataset.defaultLocale ?? "en";
+    const navLinks = navRoot.querySelectorAll("[data-nav-link]");
+
+    const setNavLocale = (locale) => {
+      const content = navContent[locale] ?? navContent[defaultLocale];
+      if (!Array.isArray(content)) return;
+
+      navLinks.forEach((link) => {
+        if (!(link instanceof HTMLElement)) return;
+        const item = content.find((entry) => entry.id === link.dataset.navLink);
+        if (item) link.textContent = item.label;
+      });
+    };
+
+    window.addEventListener("portfolio:locale-change", (event) => {
+      setNavLocale(event.detail?.locale);
+    });
+
+    const initialLocale = localStorage.getItem("portfolio-locale") ?? defaultLocale;
+    setNavLocale(initialLocale);
+
+    const sectionIds = ["home", "about", "projects", "contact"];
+    let ticking = false;
+
+    const setActiveLink = (activeId) => {
+      navLinks.forEach((link) => {
+        if (!(link instanceof HTMLElement)) return;
+        link.classList.toggle("is-active", link.dataset.navLink === activeId);
+      });
+    };
+
+    const updateNavbarVisibility = () => {
+      const currentSection = sectionIds
+        .map((id) => document.getElementById(id))
+        .filter(Boolean)
+        .reverse()
+        .find((section) => section.getBoundingClientRect().top <= window.innerHeight * 0.38);
+
+      if (currentSection) setActiveLink(currentSection.id);
+    };
+
+    const requestNavbarUpdate = () => {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(() => {
+        updateNavbarVisibility();
+        ticking = false;
+      });
+    };
+
+    updateNavbarVisibility();
+    window.addEventListener("scroll", requestNavbarUpdate, { passive: true });
+    window.addEventListener("resize", requestNavbarUpdate, { passive: true });
+  }
+</script>
+
+<style>
+  .site-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    display: flex;
+    width: 100%;
+    min-height: 3.85rem;
+    align-items: center;
+    justify-content: flex-end;
+    border-bottom: 1px solid rgba(48, 54, 61, 0.72);
+    background: rgba(13, 17, 23, 0.82);
+    padding: 0 clamp(1rem, 5vw, 4.5rem);
+    box-shadow: 0 0.75rem 1.8rem rgba(0, 0, 0, 0.18);
+    backdrop-filter: blur(18px);
+    opacity: 0;
+    pointer-events: auto;
+    transform: translateY(0);
+    transition:
+      opacity 220ms ease,
+      transform 220ms ease;
+  }
+
+  .site-navbar,
+  .site-navbar.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: clamp(1.25rem, 3vw, 2.35rem);
+  }
+
+  .nav-link {
+    color: rgba(201, 209, 217, 0.82);
+    font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+    font-size: clamp(0.95rem, 1.4vw, 1.2rem);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    transition: color 180ms ease;
+  }
+
+  .nav-link:hover,
+  .nav-link.is-active {
+    color: #ff4d5a;
+  }
+
+  @media (max-width: 640px) {
+    .site-navbar {
+      min-height: 3.45rem;
+    }
+
+    .nav-links {
+      width: 100%;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .nav-link {
+      font-size: 0.82rem;
+    }
+  }
+</style>

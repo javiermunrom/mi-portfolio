@@ -1,0 +1,52 @@
+{
+  "en": [
+    {
+      "id": "uoc-master-data-science",
+      "institution": "Universitat Oberta de Catalunya (UOC)",
+      "degree": "Master's Degree in Data Science",
+      "status": "Completed.",
+      "period": "2025 - 2026",
+      "mode": "Online",
+      "specialization": [
+        "Artificial Intelligence",
+        "Machine Learning",
+        "Deep Learning",
+        "NLP",
+        "Data Analytics",
+        "Data Engineering"
+      ]
+    },
+    {
+      "id": "us-bachelor-computer-engineering",
+      "institution": "University of Seville",
+      "degree": "Bachelor's Degree in Computer Engineering - Software Engineering",
+      "period": "2021 - 2025",
+      "finalGradeProject": "10/10"
+    }
+  ],
+  "es": [
+    {
+      "id": "uoc-master-data-science",
+      "institution": "Universitat Oberta de Catalunya (UOC)",
+      "degree": "Máster en Ciencia de Datos",
+      "status": "Máster finalizado.",
+      "period": "2025 - 2026",
+      "mode": "Online",
+      "specialization": [
+        "Inteligencia Artificial",
+        "Machine Learning",
+        "Deep Learning",
+        "Procesamiento del Lenguaje Natural",
+        "Analítica de Datos",
+        "Ingeniería de Datos"
+      ]
+    },
+    {
+      "id": "us-bachelor-computer-engineering",
+      "institution": "Universidad de Sevilla",
+      "degree": "Grado en Ingeniería Informática - Ingeniería del Software",
+      "period": "2021 - 2025",
+      "finalGradeProject": "10/10"
+    }
+  ]
+}

@@ -17,6 +17,9 @@ pnpm-debug.log*
 .env
 .env.production
 
+# local source copies
+/CV-*.pdf
+
 # macOS-specific files
 .DS_Store
 

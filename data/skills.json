@@ -1,0 +1,100 @@
+{
+  "en": [
+    {
+      "id": "programming-languages",
+      "category": "Programming Languages",
+      "items": ["Python", "Java", "JavaScript", "SQL"]
+    },
+    {
+      "id": "artificial-intelligence",
+      "category": "Artificial Intelligence",
+      "items": [
+        "Machine Learning",
+        "Deep Learning",
+        "NLP",
+        "Computer Vision",
+        "Explainable AI (XAI)",
+        "Predictive Modeling"
+      ]
+    },
+    {
+      "id": "frameworks-libraries",
+      "category": "Frameworks and Libraries",
+      "items": ["Scikit-Learn", "TensorFlow", "PyTorch", "XGBoost", "Optuna"]
+    },
+    {
+      "id": "backend",
+      "category": "Backend",
+      "items": ["FastAPI", "Django", "Spring Boot", "REST APIs"]
+    },
+    {
+      "id": "frontend",
+      "category": "Frontend",
+      "items": ["React", "HTML", "CSS"]
+    },
+    {
+      "id": "databases",
+      "category": "Databases",
+      "items": ["PostgreSQL", "NoSQL Databases", "Analytical Databases"]
+    },
+    {
+      "id": "devops",
+      "category": "DevOps",
+      "items": ["Docker", "Git", "GitHub"]
+    },
+    {
+      "id": "methodologies",
+      "category": "Methodologies",
+      "items": ["Scrum", "Kanban", "Agile Development"]
+    }
+  ],
+  "es": [
+    {
+      "id": "programming-languages",
+      "category": "Lenguajes de Programación",
+      "items": ["Python", "Java", "JavaScript", "SQL"]
+    },
+    {
+      "id": "artificial-intelligence",
+      "category": "Inteligencia Artificial",
+      "items": [
+        "Machine Learning",
+        "Deep Learning",
+        "Procesamiento del Lenguaje Natural",
+        "Visión por Computador",
+        "IA Explicable (XAI)",
+        "Modelado Predictivo"
+      ]
+    },
+    {
+      "id": "frameworks-libraries",
+      "category": "Frameworks y Librerías",
+      "items": ["Scikit-Learn", "TensorFlow", "PyTorch", "XGBoost", "Optuna"]
+    },
+    {
+      "id": "backend",
+      "category": "Backend",
+      "items": ["FastAPI", "Django", "Spring Boot", "APIs REST"]
+    },
+    {
+      "id": "frontend",
+      "category": "Frontend",
+      "items": ["React", "HTML", "CSS"]
+    },
+    {
+      "id": "databases",
+      "category": "Bases de Datos",
+      "items": ["PostgreSQL", "Bases de Datos NoSQL", "Bases de Datos Analíticas"]
+    },
+    {
+      "id": "devops",
+      "category": "DevOps",
+      "items": ["Docker", "Git", "GitHub"]
+    },
+    {
+      "id": "methodologies",
+      "category": "Metodologías",
+      "items": ["Scrum", "Kanban", "Desarrollo Ágil"]
+    }
+  ]
+}
