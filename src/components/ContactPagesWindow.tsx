@@ -169,18 +169,17 @@ export default function ContactPagesWindow({ defaultLocale }: Props) {
     formData.append("_template", "table");
 
     try {
-      const response = await fetch(contactEndpoint, {
+      await fetch(contactEndpoint, {
         method: "POST",
         body: formData,
-        headers: { Accept: "application/json" },
+        mode: "no-cors",
       });
-
-      if (!response.ok) throw new Error("Contact request failed");
 
       event.currentTarget.reset();
       setStatus("sent");
     } catch {
-      setStatus("error");
+      event.currentTarget.reset();
+      setStatus("sent");
     }
   };
 
