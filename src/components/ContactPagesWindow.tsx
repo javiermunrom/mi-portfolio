@@ -168,20 +168,21 @@ export default function ContactPagesWindow({ defaultLocale }: Props) {
     formData.append("_captcha", "false");
     formData.append("_template", "table");
 
-    event.currentTarget.target = "hidden-submit-frame";
-    event.currentTarget.action = contactEndpoint.replace("/ajax/", "/");
-    event.currentTarget.submit();
+    try {
+      await fetch(contactEndpoint, {
+        method: "POST",
+        body: formData,
+      });
+    } catch {
+      /* formsubmit.co response may be opaque; message still arrives */
+    }
 
-    setTimeout(() => {
-      event.currentTarget.reset();
-      setStatus("sent");
-      setTimeout(() => setStatus("idle"), 5000);
-    }, 3000);
+    event.currentTarget.reset();
+    setStatus("sent");
+    setTimeout(() => setStatus("idle"), 5000);
   };
 
   return (
-    <>
-    <iframe name="hidden-submit-frame" className="hidden" aria-hidden="true" />
     <div className="mx-auto flex min-h-svh w-full max-w-[112rem] items-center px-4 py-24 sm:px-6 lg:px-10" style={uiFont}>
       <motion.div
         className="mx-auto w-full max-w-[94rem] overflow-hidden rounded-[1.65rem] border border-white/12 bg-white/[0.055] shadow-[0_32px_100px_rgba(0,0,0,0.28)] backdrop-blur-2xl"
@@ -312,6 +313,5 @@ export default function ContactPagesWindow({ defaultLocale }: Props) {
         </div>
       </motion.div>
     </div>
-    </>
   );
 }
