@@ -99,6 +99,7 @@ const paperTexture = {
 };
 
 const contactEndpoint = "https://formsubmit.co/ajax/javiermunoz360@gmail.com";
+const contactRequestTimeoutMs = 10000;
 
 function ToolButton({ icon, label }: { icon: ReactNode; label: string }) {
   return (
@@ -161,25 +162,47 @@ export default function ContactPagesWindow({ defaultLocale }: Props) {
     event.preventDefault();
     if (status === "sending") return;
 
+    const form = event.currentTarget;
     setStatus("sending");
 
-    const formData = new FormData(event.currentTarget);
+    const formData = new FormData(form);
     formData.append("_subject", "New portfolio contact message");
     formData.append("_captcha", "false");
     formData.append("_template", "table");
 
     try {
-      await fetch(contactEndpoint, {
-        method: "POST",
-        body: formData,
-      });
-    } catch {
-      /* formsubmit.co response may be opaque; message still arrives */
-    }
+      const response = await Promise.race([
+        fetch(contactEndpoint, {
+          method: "POST",
+          body: formData,
+          headers: {
+            Accept: "application/json",
+          },
+        }),
+        new Promise<never>((_, reject) => {
+          window.setTimeout(() => reject(new Error("timeout")), contactRequestTimeoutMs);
+        }),
+      ]);
 
-    event.currentTarget.reset();
-    setStatus("sent");
-    setTimeout(() => setStatus("idle"), 5000);
+      if (!response.ok) {
+        setStatus("error");
+        return;
+      }
+
+      form.reset();
+      setStatus("sent");
+      window.setTimeout(() => setStatus("idle"), 5000);
+    } catch (error) {
+      if (error instanceof Error && error.message === "timeout") {
+        // FormSubmit may deliver the email even when the browser never receives the final response.
+        form.reset();
+        setStatus("sent");
+        window.setTimeout(() => setStatus("idle"), 5000);
+        return;
+      }
+
+      setStatus("error");
+    }
   };
 
   return (
