@@ -101,7 +101,7 @@
       "learnings": [
         "A portfolio works better when it has a clear concept and avoids visual noise"
       ],
-      "links": { "demo": "", "github": "" }
+      "links": { "demo": "", "github": "https://github.com/javiermunrom/mi-portfolio" }
     }
   ],
   "es": [
@@ -206,7 +206,7 @@
       "learnings": [
         "Un portfolio funciona mejor cuando tiene un concepto claro y evita el ruido visual"
       ],
-      "links": { "demo": "", "github": "" }
+      "links": { "demo": "", "github": "https://github.com/javiermunrom/mi-portfolio" }
     }
   ]
 }

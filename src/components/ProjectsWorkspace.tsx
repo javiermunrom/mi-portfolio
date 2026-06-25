@@ -1011,11 +1011,13 @@ function ProjectPreview({
       </div>
 
       <footer className="mt-8 flex flex-wrap gap-3 border-t border-white/10 pt-7">
-        <LinkButton
-          href={project.links.demo}
-          label={primaryActionLabel}
-          unavailable={labels.unavailable}
-        />
+        {project.links.demo ? (
+          <LinkButton
+            href={project.links.demo}
+            label={primaryActionLabel}
+            unavailable={labels.unavailable}
+          />
+        ) : null}
         <LinkButton
           href={project.links.github}
           label={labels.github}
