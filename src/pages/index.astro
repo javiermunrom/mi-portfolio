@@ -12,6 +12,7 @@ import site from "../../data/site.json";
 
 const locale = site.shared.defaultLocale;
 const title = site[locale].siteName;
+const googleAnalyticsId = import.meta.env.PROD ? import.meta.env.PUBLIC_GA_ID?.trim() : undefined;
 ---
 
 <html lang={locale}>
@@ -21,6 +22,21 @@ const title = site[locale].siteName;
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/mi-portfolio/favicon.svg" />
     <title>{title}</title>
+    {
+      googleAnalyticsId && (
+        <>
+          <script async src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}></script>
+          <script is:inline define:vars={{ googleAnalyticsId }}>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+              dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", googleAnalyticsId);
+          </script>
+        </>
+      )
+    }
   </head>
   <body>
     <BackgroundParticles />
