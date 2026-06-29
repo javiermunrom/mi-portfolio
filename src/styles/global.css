@@ -13,6 +13,7 @@
 html {
   min-height: 100%;
   background: #0d1117;
+  font-size: 80%;
   scroll-behavior: smooth;
 }
 
